@@ -54,14 +54,38 @@ async def main():
 asyncio.run(main())
 ```
 
-Add your API keys for the provider you want to use to your `.env` file.
+Add your API keys for the LLM provider you want to use to your `.env` file. Create a `.env` file from `.env.example` if you haven't already.
 
+Example for OpenAI:
 ```bash
-OPENAI_API_KEY=
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+Example for Google Gemini:
+```bash
+GOOGLE_API_KEY=your_google_api_key_here
 ```
 
 For other settings, models, and more, check out the [documentation 📕](https://docs.browser-use.com).
 
+### Using with Google Gemini
+
+Browser-use also supports Google's Gemini models via the `langchain-google-genai` package.
+
+1.  **Install the Google GenAI package**:
+    ```bash
+    pip install langchain-google-genai
+    ```
+    Or, if you are using `uv`:
+    ```bash
+    uv pip install langchain-google-genai
+    ```
+
+2.  **Set your API Key**: Ensure your `GOOGLE_API_KEY` is set in your `.env` file (see API key section above). You can obtain a key from [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key).
+
+3.  **Update your script**: Import `ChatGoogleGenerativeAI` and pass it to the `Agent`.
+
+    See the example script: [examples/gemini_example.py](examples/gemini_example.py)
 
 ### Test with UI
 
@@ -173,8 +197,4 @@ If you use Browser Use in your research or project, please cite:
 
 <div align="center">
 Made with ❤️ in Zurich and San Francisco
- </div> 
-
-
-
-
+ </div>
